@@ -1,14 +1,12 @@
 package com.epam.ekids.mylogger;
 
-import com.epam.ekids.mylogger.impl.FileLogger;
-
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Logger logger = new FileLogger(Main.class, "log.log");
+        Logger logger = LoggerFactory.getLogger(Main.class, "log.log");
         logger.setLogLevel(Level.DEBUG);
 
         System.out.print("Введите первое число: ");
