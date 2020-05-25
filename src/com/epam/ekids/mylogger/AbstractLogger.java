@@ -7,6 +7,9 @@ public abstract class AbstractLogger implements Logger {
 
     protected Class clazz;
 
+    public AbstractLogger() {
+    }
+
     public AbstractLogger(Class clazz) {
         this.clazz = clazz;
     }
