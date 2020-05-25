@@ -10,32 +10,28 @@ public class ConsoleLogger {
     }
 
     public void trace(String text) {
-        if (!(logLevel.ordinal() > Level.TRACE.ordinal())) {
-            System.out.println("trace: " + text);
-        }
+        log(text, Level.TRACE);
     }
 
     public void debug(String text) {
-        if (!(logLevel.ordinal() > Level.DEBUG.ordinal())) {
-            System.out.println("debug: " + text);
-        }
+        log(text, Level.DEBUG);
     }
 
     public void info(String text) {
-        if (!(logLevel.ordinal() > Level.INFO.ordinal())) {
-            System.out.println("info: " + text);
-        }
+        log(text, Level.INFO);
     }
 
     public void warn(String text) {
-        if (!(logLevel.ordinal() > Level.WARN.ordinal())) {
-            System.out.println("warn: " + text);
-        }
+        log(text, Level.WARN);
     }
 
     public void error(String text) {
-        if (!(logLevel.ordinal() > Level.ERROR.ordinal())) {
-            System.out.println("error: " + text);
+        log(text, Level.ERROR);
+    }
+
+    public void log(String text, Level level) {
+        if (!(logLevel.ordinal() > level.ordinal())) {
+            System.out.println(level +": " + text);
         }
     }
 }
