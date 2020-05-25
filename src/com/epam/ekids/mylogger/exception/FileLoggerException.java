@@ -1,4 +1,4 @@
-package com.epam.ekids.mylogger;
+package com.epam.ekids.mylogger.exception;
 
 public class FileLoggerException extends RuntimeException {
     public FileLoggerException() {

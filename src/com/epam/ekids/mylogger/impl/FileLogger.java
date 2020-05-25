@@ -1,7 +1,7 @@
 package com.epam.ekids.mylogger.impl;
 
 import com.epam.ekids.mylogger.AbstractLogger;
-import com.epam.ekids.mylogger.FileLoggerException;
+import com.epam.ekids.mylogger.exception.FileLoggerException;
 import com.epam.ekids.mylogger.Level;
 import com.epam.ekids.mylogger.Logger;
 

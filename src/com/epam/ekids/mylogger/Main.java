@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Logger logger = LoggerFactory.getLogger(Main.class, "log.log");
+        Logger logger = LoggerFactory.getLogger(Main.class);
         logger.setLogLevel(Level.DEBUG);
 
         System.out.print("Введите первое число: ");
