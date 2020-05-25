@@ -6,20 +6,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        ConsoleLogger consoleLogger = new ConsoleLogger();
+        consoleLogger.setLogLevel("debug");
 
         System.out.print("Введите первое число: ");
         double firstNumber = scanner.nextDouble();
-        log("Первое полученное число: " + firstNumber);
+        consoleLogger.debug("Первое полученное число: " + firstNumber);
 
 
         System.out.print("Введите второе число: ");
         double secondNumber = scanner.nextDouble();
-        log("Первое полученное число: " + secondNumber);
+        consoleLogger.debug("Первое полученное число: " + secondNumber);
 
         System.out.print("Введите арифметическую операцию: ");
         scanner = new Scanner(System.in);
         String operation = scanner.nextLine();
-        log("Полученный оператор: " + operation);
+        consoleLogger.debug("Полученный оператор: " + operation);
 
         double result = 0.0;
         switch (operation) {
