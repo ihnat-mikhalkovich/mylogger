@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ConsoleLogger consoleLogger = new ConsoleLogger();
-        consoleLogger.setLogLevel("debug");
+        consoleLogger.setLogLevel(Level.DEBUG);
 
         System.out.print("Введите первое число: ");
         double firstNumber = scanner.nextDouble();
