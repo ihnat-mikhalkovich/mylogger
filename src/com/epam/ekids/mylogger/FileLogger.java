@@ -16,12 +16,17 @@ public class FileLogger {
 
     public FileLogger(Class clazz, String fileName) {
         this.clazz = clazz;
+        this.writer = buildBufferedWriter(fileName);
+    }
 
+    private BufferedWriter buildBufferedWriter(String fileName) {
+        BufferedWriter writer = null;
         try {
-            this.writer = new BufferedWriter(new FileWriter(fileName));
+            writer = new BufferedWriter(new FileWriter(fileName));
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new FileLoggerException("Face exception when build BufferedWriter for file with name: " + fileName, e);
         }
+        return writer;
     }
 
     public void setClazz(Class clazz) {
@@ -56,14 +61,16 @@ public class FileLogger {
         if (logLevel.ordinal() > level.ordinal()) {
             return;
         }
-
         String message = LocalDateTime.now().toString() + " " + level + " " + clazz + " " +": " + text + '\n';
+        writeInFile(message);
+    }
 
+    private void writeInFile(String message) {
         try {
             writer.append(message);
             writer.flush();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new FileLoggerException("Face exception when try to write in file.", e);
         }
     }
 }
