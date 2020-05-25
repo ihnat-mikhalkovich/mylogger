@@ -1,27 +1,29 @@
 package com.epam.ekids.mylogger;
 
+import com.epam.ekids.mylogger.impl.FileLogger;
+
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        FileLogger fileLogger = new FileLogger(Main.class, "log.log");
-        fileLogger.setLogLevel(Level.DEBUG);
+        Logger logger = new FileLogger(Main.class, "log.log");
+        logger.setLogLevel(Level.DEBUG);
 
         System.out.print("Введите первое число: ");
         double firstNumber = scanner.nextDouble();
-        fileLogger.debug("Первое полученное число: " + firstNumber);
+        logger.debug("Первое полученное число: " + firstNumber);
 
 
         System.out.print("Введите второе число: ");
         double secondNumber = scanner.nextDouble();
-        fileLogger.debug("Первое полученное число: " + secondNumber);
+        logger.debug("Первое полученное число: " + secondNumber);
 
         System.out.print("Введите арифметическую операцию: ");
         scanner = new Scanner(System.in);
         String operation = scanner.nextLine();
-        fileLogger.debug("Полученный оператор: " + operation);
+        logger.debug("Полученный оператор: " + operation);
 
         double result = 0.0;
         switch (operation) {

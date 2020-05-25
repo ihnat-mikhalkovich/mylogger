@@ -1,11 +1,15 @@
-package com.epam.ekids.mylogger;
+package com.epam.ekids.mylogger.impl;
+
+import com.epam.ekids.mylogger.FileLoggerException;
+import com.epam.ekids.mylogger.Level;
+import com.epam.ekids.mylogger.Logger;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class FileLogger {
+public class FileLogger implements Logger {
 
     // trace, debug, info, warn, error
     private Level logLevel = Level.DEBUG;
@@ -13,6 +17,12 @@ public class FileLogger {
     private Class clazz;
 
     private BufferedWriter writer;
+
+    private final static String DEFAULT_LOG_FILE_NAME = "log.log";
+
+    public FileLogger(Class clazz) {
+        this(clazz, DEFAULT_LOG_FILE_NAME);
+    }
 
     public FileLogger(Class clazz, String fileName) {
         this.clazz = clazz;

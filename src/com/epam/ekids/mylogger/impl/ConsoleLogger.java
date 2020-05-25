@@ -1,8 +1,11 @@
-package com.epam.ekids.mylogger;
+package com.epam.ekids.mylogger.impl;
+
+import com.epam.ekids.mylogger.Level;
+import com.epam.ekids.mylogger.Logger;
 
 import java.time.LocalDateTime;
 
-public class ConsoleLogger {
+public class ConsoleLogger implements Logger {
 
     // trace, debug, info, warn, error
     private Level logLevel = Level.DEBUG;
